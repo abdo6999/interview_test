@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap');
+
 :root {
   --image-width: 300px;
   --image-height: 400px;
@@ -13,6 +15,7 @@ body, html {
   box-sizing: border-box;
   color: #fff;
   overflow: hidden;
+  font-family:Roboto Mono,sans-serif;
 }
 
 img {
@@ -229,6 +232,7 @@ p {
   height: var(--image-height);
   border-radius: 15px;
   overflow: hidden;
+  box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.4);
 }
 
 .carousel-items .carousel-item img{
