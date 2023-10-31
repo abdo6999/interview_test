@@ -25,7 +25,7 @@ let timeOutId
 
 carousel.addEventListener("click", (e) => {
   const item = e.target;
-  if (item.classList.contains("carousel-item")&& !isDragging) {
+  if (item.classList.contains("carousel-item") && !isDragging) {
     clearTimeout(timeOutId);
     const newItem = item.cloneNode(true)
     const rect = item.getBoundingClientRect();
