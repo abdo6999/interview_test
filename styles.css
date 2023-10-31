@@ -1,6 +1,6 @@
 :root {
-  --image-width: 250px;
-  --image-height: 400px;
+  --image-width: 150px;
+  --image-height: 200px;
   --mid-font-size:24px;
   --large-font-size:72px
 }
@@ -44,6 +44,7 @@ p {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   pointer-events: none;
+  z-index: 2;
 }
 
 
@@ -56,7 +57,7 @@ p {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 3;
   overflow: hidden;
 }
 
@@ -71,7 +72,7 @@ p {
 .selected-item .carousel-item img{
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 1;
 }
 
 
@@ -91,6 +92,7 @@ p {
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 7;
 }
 
 @keyframes first {
@@ -127,9 +129,37 @@ p {
   }
 }
 
+.selected-item .carousel-item.selected img{ 
+  animation:anime-content-scale 4s ease-in-out 1s;
+  transform: scale(1.4);
+}
+
+@keyframes anime-content-scale {
+  0% { 
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.4);
+  }
+}
 .selected-item .carousel-item.selected .carousel-content{
   animation:  anime-content-down 0.5s ease-in-out;
 }
+
+
+@keyframes anime-content-down {
+  0% { 
+    bottom: 0;
+    width: auto;
+    left: 0;
+  }
+  100% {
+    bottom: -50%;
+    width: auto;
+    left: 0;
+  }
+}
+
 
 .carousel-item .carousel-content.hide * {
   max-height: 0;
@@ -142,6 +172,7 @@ p {
 .carousel-item .carousel-content.show {
   width: calc(40% - 40px);
   bottom: calc(15% + (var(--image-height ) / 1.8)); 
+  z-index: 3;
 }
 
 .carousel-item .carousel-content.show *{
@@ -168,32 +199,7 @@ p {
   font-weight: normal;
 }
 
-@keyframes anime-content-down {
-  0% { 
-    bottom: 0;
-    width: auto;
-    left: 0;
-  }
-  100% {
-    bottom: -50%;
-    width: auto;
-    left: 0;
-  }
-}
 
-@keyframes anime-content-show {
-  0% { 
-    max-height: 0;
-    height: 0;
-    overflow: hidden;
-    bottom: calc(15% + (var(--image-height) / 1.8)) ;
-  }
-  100% {
-    max-height: 1000px;
-    height: auto;
-    bottom: calc(15% + (var(--image-height) / 1.8)) ;
-  }
-}
 
 
 .carousel-items {
@@ -203,7 +209,7 @@ p {
   left: 40%;
   width: 60%;
   overflow: auto;
-  z-index: 2;
+  z-index: 5;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
 }
@@ -217,18 +223,23 @@ p {
   position: relative ;
   display: flex;
   cursor: pointer;
-  margin: 5px;
+  margin: 10px;
   min-width: var(--image-width);
   width: var(--image-width);
   height: var(--image-height);
   border-radius: 15px;
   overflow: hidden;
-  transform: scale(1);
 }
 
 .carousel-items .carousel-item img{
   width: 100%;
   height: 100%;
+  transform: scale(1);
+  transition: transform 0.1s ease-in;
+  z-index: -1;
+}
+.carousel-items .carousel-item:hover img {
+  transform: scale(1.1);
 }
 
 .carousel-items .carousel-item .carousel-content {
@@ -237,6 +248,7 @@ p {
   padding: 10px;
   left: 0;
   bottom: 0;
+  z-index: 20;
 }
 
 
@@ -254,7 +266,7 @@ p {
     max-width: var(--image-width);
     min-width: var(--image-width);
     width: var(--image-width);
-    margin: 5px;
+    margin: 10px;
   }
   100% {
     max-width: 0;
@@ -266,8 +278,8 @@ p {
 
 @media (max-width: 768px) {
   :root {
-    --image-width: 150px; 
-    --image-height: 200px;
+    --image-width: 100px; 
+    --image-height: 150px;
     --mid-font-size: 18px; 
     --large-font-size: 36px; 
   }
@@ -279,6 +291,9 @@ p {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
+  }
+  .carousel-items .carousel-item{
+    margin: 10px;
   }
   .carousel-items .carousel-content{
     margin: 5px !important;

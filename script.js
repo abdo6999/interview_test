@@ -6,6 +6,7 @@ const selectedItem = document.getElementById("selected-item");
 let isMouseDown = false;
 let isDragging = false; 
 let startX, scrollLeft;
+const root = document.documentElement;
 
 function initView(mockData) {
   for (let i = 1; i < mockData.length; i++) {
@@ -88,7 +89,8 @@ carousel.addEventListener("mouseleave", () => {
 
 carousel.addEventListener("mouseup", (e) => {
   isMouseDown = false;
-  const nearestSnapPoint = Math.round(carousel.scrollLeft/250 % 250) * 260
+  const imageWidth = carousel.children[0].clientWidth
+  const nearestSnapPoint = Math.round(carousel.scrollLeft/imageWidth % 250) * (imageWidth + 10)
   carousel.scrollTo({
     left: nearestSnapPoint,
     behavior: "smooth",
