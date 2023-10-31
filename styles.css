@@ -1,6 +1,6 @@
 :root {
-  --image-width: 150px;
-  --image-height: 200px;
+  --image-width: 300px;
+  --image-height: 400px;
   --mid-font-size:24px;
   --large-font-size:72px
 }
@@ -78,8 +78,8 @@ p {
 
 .carousel-item .carousel-content{
   position: absolute;
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
 }
 
 
@@ -171,7 +171,7 @@ p {
 
 .carousel-item .carousel-content.show {
   width: calc(40% - 40px);
-  bottom: calc(15% + (var(--image-height ) / 1.8)); 
+  bottom: calc(15% + (var(--image-height ) / 2)); 
   z-index: 3;
 }
 
@@ -244,8 +244,8 @@ p {
 
 .carousel-items .carousel-item .carousel-content {
   position: absolute;
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
   left: 0;
   bottom: 0;
   z-index: 20;
@@ -296,7 +296,7 @@ p {
     margin: 10px;
   }
   .carousel-items .carousel-content{
-    margin: 5px !important;
+    margin: 0px !important;
     padding: 5px !important;
   }
   .carousel-item .carousel-content.show{

@@ -90,7 +90,7 @@ carousel.addEventListener("mouseleave", () => {
 carousel.addEventListener("mouseup", (e) => {
   isMouseDown = false;
   const imageWidth = carousel.children[0].clientWidth
-  const nearestSnapPoint = Math.round(carousel.scrollLeft/imageWidth % 250) * (imageWidth + 10)
+  const nearestSnapPoint = Math.round(carousel.scrollLeft/imageWidth % 250) * (imageWidth + 20)
   carousel.scrollTo({
     left: nearestSnapPoint,
     behavior: "smooth",
