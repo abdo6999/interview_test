@@ -49,10 +49,8 @@ carousel.addEventListener("click", (e) => {
     }, 1500);
     timeOutId = setTimeout(() => {
       const selectedItems = selectedItem.children
-      for (let i = 0; i < selectedItems.length; i++) {
-        if(i !== selectedItems.length - 1){
-          selectedItems[i].remove()
-        }
+      for (let i = 0; i < selectedItems.length - 1; i++) {
+        selectedItems[i].remove()
       }
     }, 1500);
   }
